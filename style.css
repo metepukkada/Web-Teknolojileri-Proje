@@ -1,0 +1,36 @@
+.navbar{
+    background-color: aliceblue;
+    justify-content: center;
+}
+
+.about-me{
+    padding-top: -50px;
+}
+
+.about-me-heading{
+    margin-top: 25px;
+}
+
+.split{
+    border: none;
+    border-top: 5px solid black;
+    max-width: 1250px;
+    margin: 25px auto;
+}
+
+.snowflake-icon{
+    position: relative;
+    top: -70px;
+    background-color: white;
+    padding: 15px;
+}
+
+.p-about-me{
+    position: relative;
+    top: -50px;
+}
+
+.card{
+    position: fixed;
+    right: 0px;
+}
