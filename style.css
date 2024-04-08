@@ -3,12 +3,12 @@
     justify-content: center;
 }
 
-.about-me{
-    padding-top: -50px;
-}
-
 .about-me-heading{
     margin-top: 25px;
+}
+
+.currency-heading{
+    padding-bottom: 25px;
 }
 
 .split{
@@ -30,7 +30,22 @@
     top: -50px;
 }
 
-.card{
-    position: fixed;
-    right: 0px;
+.currency{
+    text-align: center;
+    position: relative;
+}
+
+.container>ul{
+    list-style-type: none;
+    position: relative;
+    top: -50px;
+}
+
+.container{
+    position: relative;
+    text-align: center;
+}
+
+.my-hobbies-heading{
+    margin-top: 50px;
 }
