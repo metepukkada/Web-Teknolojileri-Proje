@@ -21,6 +21,9 @@
         <script src="https://kit.fontawesome.com/7f27cf8597.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="style.css">
+
+        <script src="currency.js"></script>
+
     </head>
 
     <body>
@@ -41,10 +44,10 @@
                     <a class="nav-link" href="events.html">Etkinlikler</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Hobilerim</a>
+                    <a class="nav-link" href="my-hobbies.html">Hobilerim</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Şehrim</a>
+                    <a class="nav-link" href="my-country.html">Şehrim</a>
                   </li>
                 </ul>
               </div>
@@ -77,39 +80,29 @@
         </section>
 
         <!-- About me Stop -->
-        
-        <div class="card" style="width: 18rem;">
-            <h2>Döviz Kurları</h2>
-            <ul id="doviz-listesi">
-            </ul>
+
+        <!-- Currency Start -->
+
+        <div class="currency">
+            <div class="container">
+                <h2 class="currency-heading">Döviz Kurları</h2>
+                <hr class="split">
+                <i class="fa-regular fa-snowflake fa-3x snowflake-icon"></i>
+                <ul id="doviz-listesi"></ul>
+            </div>
         </div>
 
+        <!-- Currency Stop -->
 
-        <!-- Currency Scripts -->
-        <script>
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://www.tcmb.gov.tr/kurlar/today.xml", true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var xmlDoc = xhr.responseXML;
-                    var currencyList = xmlDoc.getElementsByTagName("Currency");
-                    var dovizListesiUl = document.getElementById("doviz-listesi");
-        
-                    for (var i = 0; i < currencyList.length; i++) {
-                        var kod = currencyList[i].getAttribute("Kod");
-                        var isim = currencyList[i].getElementsByTagName("Isim")[0].textContent;
-                        var forexAlis = currencyList[i].getElementsByTagName("ForexBuying")[0].textContent;
-                        var forexSatis = currencyList[i].getElementsByTagName("ForexSelling")[0].textContent;
-        
-                        var listItem = document.createElement("li");
-                        listItem.textContent = kod + ": " + isim + " (Alış: " + forexAlis + ", Satış: " + forexSatis + ")";
-                        dovizListesiUl.appendChild(listItem);
-                    }
-                }
-            };
-            xhr.send();
-        </script>
-
+        <!-- Bottom Line Start -->
+  
+        <div class="container">
+            <hr class="split">
+            <i class="fa-regular fa-snowflake fa-3x snowflake-icon"></i>
+        </div>
+  
+        <!-- Bottom Line Stop -->
+  
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
