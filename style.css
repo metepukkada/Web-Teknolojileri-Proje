@@ -1,10 +1,15 @@
+a{
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
 .navbar{
     background-color: aliceblue;
     justify-content: center;
 }
 
 .about-me-heading{
-    margin-top: 25px;
+    margin-top: 75px;
 }
 
 .currency-heading{
@@ -46,6 +51,43 @@
     text-align: center;
 }
 
+.my-hobbies{
+    margin-top: 75px;
+}
+
 .my-hobbies-heading{
-    margin-top: 50px;
+    padding: 25px;
+}
+
+.card{
+    margin: 15px;
+}
+
+.card:hover{
+    opacity: 0.8;
+}
+
+.card-img-top{
+    height: 200px;
+}
+
+.pens-heading{
+    padding-top: 50px;
+}
+
+.card-group{
+    padding-bottom: 50px;
+}
+
+.query-container{
+    padding-top: 150px;
+    text-align: center;
+}
+
+.query{
+    width: 15rem;
+}
+
+.query-heading{
+    text-align: center;
 }
