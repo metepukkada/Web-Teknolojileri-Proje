@@ -32,8 +32,8 @@ function getFilms(data){
     var i = 0;
     films.forEach(function(film, index) {
         if(index % 5 === 0){
-            
             cardHTML += `</div><div class="card-group" id="movie-group ${i}">`
+            i++
         }
         cardHTML +=
                     `
