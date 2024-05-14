@@ -91,3 +91,27 @@ a{
 .query-heading{
     text-align: center;
 }
+
+.carousel{
+    padding-top: 4%;
+}
+
+.carousel img{
+    height: 768px;
+    object-fit: cover;
+    width: 100%;   
+}
+
+.known-places-ul, .history-ul{
+    list-style: none;
+}
+
+section {
+    margin-bottom: 0; /* Sectionların altındaki boşluğu kaldırır */
+    margin-top: 0; /* Sectionların üstündeki boşluğu kaldırır */
+}
+
+.splitter{
+    margin-bottom: -200px;
+}
+
