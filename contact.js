@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const genderInput = document.getElementById('gender');
     const genderLabel = document.getElementById('genderLabel');
-    const genderValues = ["Kadın", "C++", "Atak Helikopteri", "RTX 4090Ti", "İnan Bilmiyorum", "Meyveli Süt", "Integer", "98' Toyota Corolla", "Erkek"];
+    const genderValues = ["Kadın", "C++", "Atak Helikopteri", "RTX 4090Ti", "nullptr", "Meyveli Süt", "Integer", "98' Toyota Corolla", "Erkek"];
     const submitButton = document.getElementById("submit");
     
     function updateGenderLabel() {
         genderLabel.textContent = genderValues[genderInput.value];
     }
     
-    function checkSubmit(){
+    function formValidation(){
         const nameInput = document.getElementById("name");
         const lastnameInput = document.getElementById("lastname");
         const adressInput = document.getElementById("adress");
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for input change
     genderInput.addEventListener('input', updateGenderLabel);
     //Event listener for submit change
-    submitButton.addEventListener('click' , checkSubmit);
+    submitButton.addEventListener('click' , formValidation);
 });
 
 
