@@ -13,8 +13,9 @@ function App() {
     additionalInfo: ''
   });
 
-  const genderValues = ["Kadın", "C++", "Atak Helikopteri", "RTX 4090Ti", "nullptr", "Meyveli Süt", "Integer", "98' Toyota Corolla", "Erkek"];
+  const [submittedData, setSubmittedData] = useState(null);
 
+  const genderValues = ["Kadın", "C++", "Atak Helikopteri", "RTX 4090Ti", "nullptr", "Meyveli Süt", "Integer", "98' Toyota Corolla", "Erkek"];
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,14 +28,7 @@ function App() {
         genderText: selectedGender,
         [name]: value
       });
-    }
-    else if(name === "phone"){
-      setFormData({
-        ...formData,
-        [name]: value
-      })
-    } 
-    else {
+    } else {
       setFormData({
         ...formData,
         [name]: value
@@ -42,7 +36,7 @@ function App() {
     }
   };
 
-  const handleReset = (event) => {
+  const handleReset = () => {
     setFormData({
       firstName: '',
       lastName: '',
@@ -52,84 +46,80 @@ function App() {
       gender: '',
       additionalInfo: ''
     });
-  }
+    setSubmittedData(null);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  if(formData.firstName === ""){
-    alert("İsim Boş Bırakılamaz!");
-    return;
-  }
-  if(formData.firstName.length > 40){
+    // Validasyon kontrolleri
+    if (formData.firstName === "") {
+      alert("İsim Boş Bırakılamaz!");
+      return;
+    }
+    if (formData.firstName.length > 40) {
       alert("İsim 40 Karakterden Fazla Olamaz!");
       return;
-  }
-  if(formData.lastName === ""){
+    }
+    if (formData.lastName === "") {
       alert("Soyisim Boş Bırakılamaz!");
       return;
-  }
-  if(formData.lastName.length > 40){
-      alert("İsim 40 Karakterden Fazla Olamaz!");
+    }
+    if (formData.lastName.length > 40) {
+      alert("Soyisim 40 Karakterden Fazla Olamaz!");
       return;
-  }
-  if(formData.adress === ""){
+    }
+    if (formData.address === "") {
       alert("Adres Boş Bırakılamaz!");
       return;
-  }
-  if(formData.address.length > 255){
+    }
+    if (formData.address.length > 255) {
       alert("Adres 255 Karakterden Fazla Olamaz!");
       return;
-  }
-  if(formData.phone === ""){
+    }
+    if (formData.phone === "") {
       alert("Telefon Numarası Boş Bırakılamaz!");
       return;
-  }
-  if(formData.phone[0] !== '0'){
-      alert("Telefon Numarası 0 ile Başlamlıdır!");
+    }
+    if (formData.phone[0] !== '0') {
+      alert("Telefon Numarası 0 ile Başlamalıdır!");
       return;
-  }
-  if(formData.phone.length !== 11){
+    }
+    if (formData.phone.length !== 11) {
       alert("Telefon Numarası 11 Hane Olmalıdır!");
       return;
-  }
-  if(formData.additionalInfo === ""){
+    }
+    if (formData.additionalInfo === "") {
       alert("Ek Bilgi Boş Bırakılamaz!");
       return;
-  }
-  if(formData.email === ""){
+    }
+    if (formData.email === "") {
       alert("Email Boş Bırakılamaz!");
       return;
-  }
-  if(formData.email.length > 40){
-      alert("E-mail 255 Karakterden Fazla Olamaz!");
+    }
+    if (formData.email.length > 40) {
+      alert("E-mail 40 Karakterden Fazla Olamaz!");
       return;
-  }
-  if(!formData.email.includes('@')){
+    }
+    if (!formData.email.includes('@')) {
       alert("E-mail @ İçermelidir!")
       return;
-  }
-  if(!formData.email.includes('.')){
+    }
+    if (!formData.email.includes('.')) {
       alert("E-mail Formatı Geçersiz!")
       return;
-  }
-    alert(`Form submitted with values:
-      First Name: ${formData.firstName}
-      Last Name: ${formData.lastName}
-      Address: ${formData.address}
-      Email: ${formData.email}
-      Phone: ${formData.phone}
-      Gender: ${formData.gender}
-      Additional Info: ${formData.additionalInfo}`);
+    }
 
-      setFormData({
-        firstName: '',
-        lastName: '',
-        address: '',
-        email: '',
-        phone: '',
-        gender: '',
-        additionalInfo: ''
-      });
+    setSubmittedData(formData);
+
+    setFormData({
+      firstName: '',
+      lastName: '',
+      address: '',
+      email: '',
+      phone: '',
+      gender: '',
+      additionalInfo: ''
+    });
   };
 
   return (
@@ -168,6 +158,9 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" href="contact.html">İletişim</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="heritance.html">Mirasımız</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -182,7 +175,7 @@ function App() {
             <div className="row mb-4">
               <div className="col">
                 <div data-mdb-input-init className="form-outline">
-                  <label className="form-label" htmlFor="firstName">First name</label>
+                  <label className="form-label" htmlFor="firstName">İsim</label>
                   <input
                     type="text"
                     id="firstName"
@@ -195,7 +188,7 @@ function App() {
               </div>
               <div className="col">
                 <div data-mdb-input-init className="form-outline">
-                  <label className="form-label" htmlFor="lastName">Last name</label>
+                  <label className="form-label" htmlFor="lastName">Soyisim</label>
                   <input
                     type="text"
                     id="lastName"
@@ -208,7 +201,7 @@ function App() {
               </div>
             </div>
             <div data-mdb-input-init className="form-outline mb-4">
-              <label className="form-label" htmlFor="address">Address</label>
+              <label className="form-label" htmlFor="address">Adres</label>
               <input
                 type="text"
                 id="address"
@@ -219,7 +212,7 @@ function App() {
               />
             </div>
             <div data-mdb-input-init className="form-outline mb-4">
-              <label className="form-label" htmlFor="email">Email</label>
+              <label className="form-label" htmlFor="email">E-mail</label>
               <input
                 type="text"
                 id="email"
@@ -230,7 +223,7 @@ function App() {
               />
             </div>
             <div data-mdb-input-init className="form-outline mb-4">
-              <label className="form-label" htmlFor="phone">Phone</label>
+              <label className="form-label" htmlFor="phone">Telefon</label>
               <input
                 type="number"
                 id="phone"
@@ -262,7 +255,7 @@ function App() {
               </div>
             </div>
             <div data-mdb-input-init className="form-outline mb-4">
-              <label className="form-label" htmlFor="additionalInfo">Additional information</label>
+              <label className="form-label" htmlFor="additionalInfo">Ek Bilgi</label>
               <textarea
                 className="form-control"
                 id="additionalInfo"
@@ -277,6 +270,17 @@ function App() {
               <button data-mdb-ripple-init type="reset" className="btn btn-primary btn-block mb-4" onClick={handleReset}>Temizle</button>
             </div>
           </form>
+          {submittedData && (
+            <div id='information'>
+              <h3>İsim: {submittedData.firstName}</h3>
+              <h3>Soyisim": {submittedData.lastName}</h3>
+              <h3>Adres: {submittedData.address}</h3>
+              <h3>E-mail: {submittedData.email}</h3>
+              <h3>Telefon: {submittedData.phone}</h3>
+              <h3>Cinsiyet: {submittedData.gender}</h3>
+              <h3>Ek Bilgi: {submittedData.additionalInfo}</h3>
+            </div>
+          )}
         </div>
       </main>
     </div>

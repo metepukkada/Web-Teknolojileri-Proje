@@ -79,7 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Adres: " + adressInput.value + "\n" + 
                 "E-mail: " + emailInput.value + "\n" +
                 "Telefon Numarası: " + phoneInput.value + "\n" +
-                "Cinsiyet: " + genderLabel.textContent);
+                "Cinsiyet: " + genderLabel.textContent + "\n" +
+                "Ek Bilgi: " + infoInput.value
+            );
+
+        var info = document.getElementById("contact-information")
+        info.innerHTML += `
+        <h3>İsim: ${nameInput.value}</h3>
+        <h3>Soyisim: ${lastnameInput.value}</h3>
+        <h3>Adres: ${adressInput.value}</h3>
+        <h3>E-mail: ${emailInput.value}</h3>
+        <h3>Telefon: ${phoneInput.value}</h3>
+        <h3>Cinsiyet: ${genderLabel.textContent}</h3>
+        <h3>Cinsiyet: ${infoInput.value}</h3>
+        `
+        document.getElementById("contact-form").reset();
     }
 
     // Initial load

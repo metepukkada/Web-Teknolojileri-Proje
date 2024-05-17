@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">İletişim</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="heritance.html">Mirasımız</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,18 +63,18 @@
         </div>
 
         <div class="form-container container">
-            <form>
+            <form id="contact-form">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row mb-4">
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form6Example1">First name</label>
+                            <label class="form-label" for="form6Example1">İsim</label>
                             <input type="text" id="name" class="form-control" />
                         </div>
                     </div>
                     <div class="col">
                         <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form6Example2">Last name</label>
+                            <label class="form-label" for="form6Example2">Soyisim</label>
                             <input type="text" id="lastname" class="form-control" />
                         </div>
                     </div>
@@ -79,19 +82,19 @@
 
                 <!-- Text input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example4">Address</label>
+                    <label class="form-label" for="form6Example4">Adres</label>
                     <input type="text" id="adress" class="form-control" />
                 </div>
 
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example5">Email</label>
+                    <label class="form-label" for="form6Example5">E-mail</label>
                     <input type="email" id="email" class="form-control" />
                 </div>
 
                 <!-- Number input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example6">Phone</label>
+                    <label class="form-label" for="form6Example6">Telefon</label>
                     <input type="number" id="phone" class="form-control" />
                 </div>
 
@@ -111,7 +114,7 @@
 
                 <!-- Message input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example7">Additional information</label>
+                    <label class="form-label" for="form6Example7">Ek Bilgi</label>
                     <textarea class="form-control" id="info" rows="4"></textarea>
                 </div>
 
@@ -119,6 +122,10 @@
                 <button data-mdb-ripple-init type="button" id="submit" class="btn btn-primary btn-block mb-4">Gönder</button>
                 <button data-mdb-ripple-init type="reset" class="btn btn-primary btn-block mb-4">Temizle</button>
             </form>
+        </div>
+
+        <div class="container" id="contact-information">
+
         </div>
 
     </main>
