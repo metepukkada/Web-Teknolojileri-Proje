@@ -58,10 +58,15 @@ function autherize(){
   $id = $_POST["student-id"];
   $pass = $_POST["password"];
 
-  if($id == "b231210061" && $pass == "123"){
-    echo "Hoş geldin "; echo $id;
+  if(!str_contains($id, '@')){
+    echo "<h1>Kullanıcı Adı '@' İçermelidir! </h1>";
+    return;
+  }
+  if($id == "b231210061@sakarya.edu.tr" && $pass == "b231210061"){
+    echo "Hoş geldin "; echo $id; echo "<br> <a href=\"index.html\">Ana Sayfa</a>";
   }else{
-    return "<h1>Hatalı Giriş</h1>";
+    echo "<h1>Hatalı Giriş</h1>";
+    return;
   }
 } 
 
