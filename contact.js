@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneInput = document.getElementById("phone");
         const infoInput = document.getElementById("info");
         const emailInput = document.getElementById("email");
+        const gender = genderLabel.textContent;
        
         if(nameInput.value === ""){
             alert("İsim Boş Bırakılamaz!");
@@ -93,6 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>Cinsiyet: ${genderLabel.textContent}</h3>
         <h3>Cinsiyet: ${infoInput.value}</h3>
         `
+        
+        // Yeni sayfa URL'sini oluştur
+        const uri = `form-info.html?name=${nameInput.value}&lastname=${lastnameInput.value}&adress=${adressInput.value}&email=${emailInput.value}&phone=${phoneInput.value}&gender=${gender}&info=${infoInput.value}`;
+        const encodeduri = encodeURI(uri);
+        
+        // Yeni sayfaya yönlendir
+        window.location.href = encodeduri;
+        
         document.getElementById("contact-form").reset();
     }
 
@@ -104,5 +113,3 @@ document.addEventListener('DOMContentLoaded', () => {
     //Event listener for submit change
     submitButton.addEventListener('click' , formValidation);
 });
-
-
